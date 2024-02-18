@@ -1,9 +1,24 @@
 # Multilabel_StackOverflow_Tag_Classification
 
 ## Intro
-The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus.
+The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:
+1. Questions.csv
+    * A unique identifier of the user that created each question
+    * A unique identifier of the question itself
+    * Creation and closing datetimes corresponding to each question
+    * The cumulative reaction score of each question (zero, positive or negative)
+    * The title and main body of each question.
+3. Tags.csv
+    * A unique identifier for each question.
+    * One or more associated tags.
+
 
 ## EDA 
+
+In this step, we perform Exploratory Data Analysis, in order to deeply understand our data. 
+
+You will most likely need to use the Questions.csv and Tags.csv files in order to complete the tasks described in the following sec- tions. 
+
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/weiji14/deepbedmap/]
 

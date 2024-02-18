@@ -1,6 +1,10 @@
 # Multilabel_StackOverflow_Tag_Classification
 
+The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus.
+
 ## EDA 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/weiji14/deepbedmap/]
 
 ## Baseline Model
 
@@ -99,3 +103,5 @@
   </tr>
 </table>
 
+
+Unfortunately on the experiment procedure, we face RAM issues with 200 Top Tag Combinations, therefore we must limit in smaller subsets of original dataset.

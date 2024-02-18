@@ -8,8 +8,16 @@
 
 
 
+## Experiment Table
 
 <table>
+
+  <tr>
+    <td colspan="3">EDA</td>
+    <td colspan="4">Baseline Model</td>
+    <td colspan="4">LLM Model</td>
+  </tr>
+  
   <tr>
     <td>Questions</td>
     <td>Tag Combinations</td>
@@ -90,3 +98,4 @@
     <td colspan="8">MEMORY RAM CRASH</td>
   </tr>
 </table>
+

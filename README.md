@@ -1,5 +1,6 @@
 # Multilabel_StackOverflow_Tag_Classification
 
+## Intro
 The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus.
 
 ## EDA 
@@ -10,7 +11,20 @@ The current case-study revolves around tag prediction of Stack Overflow question
 
 ## BERT Model
 
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
 
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
 
 ## Experiment Table
 

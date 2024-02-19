@@ -107,7 +107,7 @@ dsadsadsada
     <td>0.8</td>
     <td>0.79</td>
     <td>6 mins</td>
-    <td colspan="4">N/A</td>
+    <td colspan="4" align="center">N/A</td>
   </tr>
   <tr>
     <td>48.505</td>
@@ -144,13 +144,13 @@ dsadsadsada
   <td>0.76</td>
   <td>0.68</td>
   <td>24 mins</td>
-  <td colspan="4">N/A</td>
+  <td colspan="4" align="center">N/A</td>
 </tr>
   <tr>
     <td>76.766</td>
     <td>200</td>
     <td>133</td>
-    <td colspan="8">MEMORY RAM CRASH</td>
+    <td colspan="8" align="center">MEMORY RAM CRASH</td>
   </tr>
 </table>
 

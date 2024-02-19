@@ -14,7 +14,7 @@ The current case-study revolves around tag prediction of Stack Overflow question
     * A unique identifier for each question.
     * One or more associated tags.
 
-
+All three following notebooks can be configured with desired number M, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
 
 ## EDA 
 Due to time and resources limitations, from the beginning of this project, we knew that we must retain a proper subset of the original dataset. After merging two csv files, we aimed to identify insights for Tags via plots and statistics, thus leading us to the result to experiment in keeping only top N tags. After some trial and errors, we decided it (for future ease) to experiment in keeping with the top M tag combinations. Note that we decided to opt only the Questions with positive cummulative score, as we believe this kind of questions, most of the times provide valuable insights and solutions, therefore more quality data.
@@ -36,10 +36,12 @@ After a single run of EDA notebook [![Open In Colab](https://colab.research.goog
 
 ## Baseline Model
 
-With similar thought process Baseline_Model notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Baseline_Model.ipynb) is 
+With similar thought process, Baseline_Model notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Baseline_Model.ipynb) defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
+
+Our problem is multilabel, thus we already know that Tag may be more than one and this is a tricky point that we need to focus about splitting the original dataset properly. We implemented a function which will be utilised in both model notebooks, whose goal is to split the data properly into train,test or train,val,test with configurable sizes. Through this manual function we are reassured that our final sets are balanced in of all the possible Tag Combinations. 
 
 > [!TIP]
-> Helpful advice for doing things better or more easily.
+> To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure
 
 
 ## LLM Model

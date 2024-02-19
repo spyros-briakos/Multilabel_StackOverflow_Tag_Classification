@@ -1,6 +1,6 @@
 # Multilabel_StackOverflow_Tag_Classification
 
-## Intro
+## Introduction
 The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:
 1. Questions.csv
     * A unique identifier of the user that created each question
@@ -15,7 +15,6 @@ The current case-study revolves around tag prediction of Stack Overflow question
 
 
 ## EDA 
-
 Due to time and resources limitations, from the beginning of this project, we knew that we must retain a proper subset of the original dataset. After merging two csv files, we aimed to identify insights for Tags via plots and statistics, thus leading us to the result to experiment in keeping only top N tags. After some trial and errors, we decided it (for future ease) to experiment in keeping with the top M tag combinations. Note that we decided to opt only the Questions with positive cummulative score, as we believe this kind of questions, most of the times provide valuable insights and solutions, therefore more quality data.
 
 
@@ -34,16 +33,12 @@ After a single run of EDA notebook [![Open In Colab](https://colab.research.goog
 
 
 ## Baseline Model
-
 > [!TIP]
 > Helpful advice for doing things better or more easily.
 
 
 
 ## LLM Model
-
-
-
 dsadsadsada
 
 

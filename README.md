@@ -40,12 +40,12 @@ The biggest time allocation of this project was for sure EDA, and one of its sub
 - Removal of only-digit words
 - Joining 
 > ***    
-After a single run of `EDA.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/EDA.ipynb), having opted M value, it is produced a preprocessed.csv, which contains data with top M tag combinations, ready to manipulate afterwards on model notebooks. In that way, code is more generic and we have the ability to store different subsets of original dataset, as we prefer.
+After a single run of `EDA.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Tag_Combinations_50/EDA_50.ipynb), having opted M value, it is produced a preprocessed.csv, which contains data with top M tag combinations, ready to manipulate afterwards on model notebooks. In that way, code is more generic and we have the ability to store different subsets of original dataset, as we prefer.
 
 
 ## Baseline Model
 
-`Baseline_Model.ipnyb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Baseline_Model.ipynb) defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
+`Baseline_Model.ipnyb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Tag_Combinations_50/Baseline_Model_50.ipynb) defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
 Our problem is multilabel, thus we already know that Tag may be more than one and this is a tricky point that we need to focus about splitting the original dataset properly. We implemented a function which will be utilised in both model notebooks, whose goal is to split the data properly into (train,test) or (train,val,test) with configurable sizes. Through this manual function we are reassured that our final sets are balanced in of all the possible Tag Combinations. 
 
@@ -62,9 +62,9 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 
 ## LLM Model
 
-`LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/LLM_Model.ipynb), with similar thought process, defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
+`LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Tag_Combinations_50/LLM_Model_50_16.ipynb), with similar thought process, defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
-A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
+> A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
 
 
 > [!NOTE]

@@ -170,8 +170,12 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
   <td align="center">104</td>
   <td align="center">0.01</td>
   <td align="center">0.76</td>
+  <td align="center">0.68</td>  
   <td align="center">0.68</td>
-  <td colspan="4" align="center">N/A</td>
+  <td align="center">0.01</td>
+  <td align="center">0.78</td>
+  <td align="center">0.49</td>
+  <td align="center">25 (32)</td>
 </tr>
   <tr>
     <td align="center">76.766</td>

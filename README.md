@@ -36,6 +36,7 @@ The biggest time allocation of this project was for sure EDA, and one of its sub
 - Tokenization (NLTK) on words!=tags
 - Punctuation Removal (except of '.-#+')
 - Removal of Stopwords
+- Lemmatization 
 - Removal of only-puncts words
 - Removal of only-digit words
 - Joining 

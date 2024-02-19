@@ -25,21 +25,21 @@ Due to time and resources limitations, from the beginning of this project, we kn
 The biggest time allocation of this project was for sure EDA, and one of its subgoals, which is preprocessing. We gave a strong focus with many manual examples exploration, in order to reassure pipeline's stability. We treated specially words like the name of a Tag, because they give a strong weight to prediction. In addition, most of the tags are programming languages, packages, versions, systems and other and due to this fact we were very cautius with punctuation (C#,C++,.NET).
 
 > ***    
-
 Preprocessing Pipeline:
 - Lowercase
 - Cleaning
    - Removal of noise from tag words
-  -- Removal of HTML tags
->    - Removal of IPV4 adresses 
->    - Removal of URLs
->    - Removal of redundant symbols (spaces, newline etc.)
->    - Fix Contractions
-> - Tokenization (NLTK) on words!=tags
-> - Punctuation Removal (except of '.-#+')
-> - Removal of Stopwords
-> - 
-> - 
+   - Removal of HTML tags
+   - Removal of IPV4 adresses 
+   - Removal of URLs
+   - Removal of redundant symbols (spaces, newline etc.)
+   - Fix Contractions
+- Tokenization (NLTK) on words!=tags
+- Punctuation Removal (except of '.-#+')
+- Removal of Stopwords
+- Removal of only-puncts words
+- Removal of only-digit words
+- Joining 
 > ***    
 
 

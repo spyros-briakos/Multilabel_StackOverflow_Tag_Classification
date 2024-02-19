@@ -3,7 +3,7 @@
 ![Alt text](images/stackoverflow.png)
 
 ## Introduction
-The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:
+The current case-study revolves around tag prediction of Stack Overflow questions on programming topics. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:
 1. `Questions.csv`
     * A unique identifier of the user that created each question
     * A unique identifier of the question itself

@@ -171,7 +171,6 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
   <td align="center">0.01</td>
   <td align="center">0.76</td>
   <td align="center">0.68</td>  
-  <td align="center">0.68</td>
   <td align="center">0.01</td>
   <td align="center">0.78</td>
   <td align="center">0.49</td>

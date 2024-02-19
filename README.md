@@ -71,14 +71,14 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
 > The following two code blocks produce the exact same result, we utilise the last, for ease purposes.
 ```ruby
 class BERTModel(torch.nn.Module):
-    def __init__(self):
-        super(BERTModel, self).__init__(num_labels)
+    def __init__(self, num_labels):
+        super(BERTModel, self).__init__()
         self.l1 = transformers.BertModel.from_pretrained('bert-base-uncased', return_dict=False)
         self.l2 = torch.nn.Dropout(0.1)
         self.l3 = torch.nn.Linear(768, num_labels)
 
-    def forward(self, ids, mask, token_type_ids):
-        _, output_1= self.l1(ids, attention_mask = mask, token_type_ids = token_type_ids)
+    def forward(self, ids, mask):
+        _, output_1= self.l1(ids, attention_mask = mask)
         output_2 = self.l2(output_1)
         output = self.l3(output_2)
         return output

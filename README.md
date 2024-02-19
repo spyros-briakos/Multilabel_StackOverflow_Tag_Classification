@@ -89,7 +89,6 @@ model.to(device)
 
 ```ruby
 model_name = 'bert-base-uncased'
-tokenizer = BertTokenizer.from_pretrained(model_name)
 model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len(unique_tags)).to(device)
 ```
 

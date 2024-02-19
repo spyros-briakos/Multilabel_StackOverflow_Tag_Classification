@@ -65,17 +65,19 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 > [!TIP]
 > To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure that sets will be balanced and contain a based-on-ratio-equally number of examples, leading to sufficient model's exposure to all cases. 
 
-TF-IDF (Term Frequency-Inverse Document Frequency) was used for feature extraction with max_features=20000, considering also uni,bi and trigrams.
-
-Metrics opted for evaluation: Hamming Loss, Micro-F1 and Macro-F1 
-
-Multiple Sklearn Models were used, but the most competitive performance derives from **Linear SVC** and **SGD**.
+Next Steps:
+   1. **TF-IDF (Term Frequency-Inverse Document Frequency)** was used for text feature extraction with max_features=20000, considering also uni,bi and trigrams.
+   2. **MultiLabelBinarizer** was used to convert tags to binary vector representation.
+   3. Metrics opted for evaluation: **Hamming Loss**, **Micro-F1** and **Macro-F1**.
+   4. Multiple Sklearn Models were used, but the most competitive performance derives from **Linear SVC**.
+   5. **KFold Cross Validation** for the best model, ensuring that the model's performance is consistent across different data's subsets.
+   6. **Classification Report** for each Tag.
 
 ## BERT Model
 
 `LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/LLM_Model.ipynb), with similar thought process, defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
-A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment with batch size: {16,32} and a small number of epochs: 3 (time restrictions).
+A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
 
 
 

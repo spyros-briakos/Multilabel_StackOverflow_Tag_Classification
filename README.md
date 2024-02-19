@@ -16,7 +16,7 @@ The current case-study revolves around tag prediction of Stack Overflow question
 
 I am utilising a diverse range of NLP tools and models, spanning from basic ML traditional models to advanced neural networks, like BERT that has been fine-tuned for the specific task. Finally we merge all the results together so as to compare from metrics and efficiency perspective.
 
-> All three following notebooks can be configured with desired number M, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
+All three following notebooks can be configured with desired **number M**, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
 
 ## EDA 
 Due to time and resources limitations, from the beginning of this project, we knew that we must retain a proper subset of the original dataset. After merging two csv files, we aimed to identify insights for Tags via plots and statistics, thus leading us to the result to experiment in keeping only top N tags. After some trial and errors, we decided it (for future ease) to experiment in keeping with the top M tag combinations. Note that we decided to opt only the Questions with positive cummulative score, as we believe this kind of questions, most of the times provide valuable insights and solutions, therefore more quality data.
@@ -51,7 +51,7 @@ After a single run of `EDA.ipynb` notebook [![Open In Colab](https://colab.resea
 Our problem is multilabel, thus we already know that Tag may be more than one and this is a tricky point that we need to focus about splitting the original dataset properly. We implemented a function which will be utilised in both model notebooks, whose goal is to split the data properly into (train,test) or (train,val,test) with configurable sizes. Through this manual function we are reassured that our final sets are balanced in of all the possible Tag Combinations. 
 
 > [!TIP]
-> To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure that sets will be balanced and contain a based-on-ratio-equally number of examples, leading to sufficient model's exposure to all cases. 
+> To split data properly and result to well distributed train,val and test sets try convert multilabel to single label by calculating all unique label combinations. With that logic we are pretty sure that sets will be balanced and contain a based-on-ratio-equally number of examples, leading to sufficient model's exposure to all cases. 
 
 ### Structure Points:
 - **TF-IDF (Term Frequency-Inverse Document Frequency)** was used for text feature extraction with max_features=20000, considering also uni,bi and trigrams.
@@ -65,7 +65,7 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 
 `LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Tag_Combinations_50/LLM_Model_50_16.ipynb), with similar thought process, defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
-> A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
+A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
 
 
 > [!NOTE]
@@ -92,11 +92,11 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 ```
 
 ### Structure Points:
-- **BERT** was choosed as architecture ('bert-base-uncased') and construct a model comprised from BERT and on top a trainable classification layer.
+- **BERT** was choosed as architecture ('bert-base-uncased') and construct a Pytorch model comprised from BERT and on top a trainable classification layer.
 - **MultiLabelBinarizer** was used to convert tags to binary vector representation.
 - **Pytorch Dataset & Dataloader** made the process of manipulating data to feed them into the model smooth.
 - **BCEWithLogitsLoss** utilised as loss function, well-suited for multilabel problems, as it calculates the loss for each label independently.
-- **Pytorch Training** and respective Learning Curve.
+- **Pytorch Finetuning** and respective Learning Curve.
 - **Hamming Loss**, **Micro-F1** and **Macro-F1** were the metrics opted for evaluation. 
 - **Classification Report** for each Tag.
 
@@ -229,13 +229,17 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 </table>
 
 
-Unfortunately on the experiment procedure, we face RAM issues with 200 Top Tag Combinations, therefore we must limit in smaller subsets of original dataset.
+> Unfortunately on the experiment procedure, we face RAM issues with 200 Top Tag Combinations, therefore we had to limit ourselves in smaller subsets of original dataset.
 
-### Compared Models 
-- Baseline model is **Linear Support Vector Machines** and except of its pretty descent performance in all of our experiments, we have to mention that was very time efficient, managing to train in just ***less than a minute***.
-- For a more sophisticated model we opted from HuggingFace library **BERT 'bert-base-uncased'** model added on top classification head. Our choice is justified by the fact that we have a multilabel classification problem and also BERT is very popular for text classification. 
+### Conclusions 
+- Baseline model is **Linear Support Vector Machines** and except of its pretty descent performance in all of our experiments, we have to mention that was very time efficient, managing to train in just ***less than a minute***. We need to inspect the broader picture, as this traditional ML model literally in seconds achieves, based on our metrics, very satisfying results. For example, if we concentrate on row with 38 Unique Tags, Linear SVC managed to record Micro-F1 0.79. A significant note is that while number of examples increasing time Linear SVC needs to be trained isn't directly affected, thus from computational perspective it's the absolute winner.
+
+- For a more sophisticated model we opted from HuggingFace library **BERT 'bert-base-uncased'** model added on top classification head. Our choice is justified by the fact that we have a multilabel classification problem and also BERT is very popular for text classification. For all experiments, BERT consistently outperforms Linear SVC in terms of Hamming Loss, Micro-F1, and Macro-F1 scores, indicating better accuracy in predicting the labels. However, finetuning of BERT required extensive GPU usage the larger the dataset the more minutes each epoch needed. 
+
+> All in all, it can be concluded that BERT generally outperforms Linear SVC for this classification task. However, it's essential to consider factors such as computational resources and model complexity when choosing between the two approaches.
+
 
 
 ### Future Work
 - For sure with plenty of time, just a few epochs more could lead to a bit better results!
-- Allocate more time to preprocess further data.
+- Undoubtedly allocate more time to preprocess and explore further the data!

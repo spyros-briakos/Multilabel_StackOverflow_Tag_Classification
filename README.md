@@ -68,7 +68,7 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
 
 
 > [!NOTE]
-> The following two code blocks produce the exact same result, we utilise the last, for ease purposes.
+> The following two code blocks produce the exact same result, we utilise the first one for experimenting manually.
 ```ruby
 class BERTModel(torch.nn.Module):
     def __init__(self, num_labels):
@@ -91,7 +91,7 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 ```
 
 ### Structure Points:
-- **BertForSequenceClassification** was choosed as architecture (model:'bert-base-uncased'), comprised from BERT and on top a trainable classification layer.
+- **BERT** was choosed as architecture ('bert-base-uncased') and construct a model comprised from BERT and on top a trainable classification layer.
 - **MultiLabelBinarizer** was used to convert tags to binary vector representation.
 - **Pytorch Dataset & Dataloader** made the process of manipulating data to feed them into the model smooth.
 - **BCEWithLogitsLoss** utilised as loss function, well-suited for multilabel problems, as it calculates the loss for each label independently.
@@ -227,8 +227,11 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 
 Unfortunately on the experiment procedure, we face RAM issues with 200 Top Tag Combinations, therefore we must limit in smaller subsets of original dataset.
 
-Baseline model is **Linear Support Vector Machines** and except of its pretty descent performance in all of our experiments, we have to mention that was very time efficient, managing to train in just ***less than a minute***.
+### Compared Models 
+- Baseline model is **Linear Support Vector Machines** and except of its pretty descent performance in all of our experiments, we have to mention that was very time efficient, managing to train in just ***less than a minute***.
+- For a more sophisticated model we opted from HuggingFace library **BERT 'bert-base-uncased'** model added on top classification head. Our choice is justified by the fact that we have a multilabel classification problem and also BERT is very popular for text classification. 
 
-For a more sophisticated model we opted from HuggingFace library BERTforSequenceClassification architecture with **BERT 'bert-base-uncased'** model. Our choice is justified by the fact that we have a multilabel classification problem and also BERT is very popular for text classification. 
 
-just a few epochs more could lead to a bit better results
+### Future Work
+- For sure with plenty of time, just a few epochs more could lead to a bit better results!
+- Allocate more time to preprocess further data.

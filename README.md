@@ -244,3 +244,4 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 - For sure with plenty of time, just a few epochs more could lead to a bit better results.
 - Undoubtedly allocate more time to preprocess and explore further the data.
 - Extensive hyperparameter tuning (i.e learning rate, optimizer, dropout).
+- Conduct experiments with Sentence Transformers for embeddings. 

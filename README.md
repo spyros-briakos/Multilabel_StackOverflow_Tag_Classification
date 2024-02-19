@@ -41,15 +41,13 @@ With similar thought process, Baseline_Model notebook [![Open In Colab](https://
 Our problem is multilabel, thus we already know that Tag may be more than one and this is a tricky point that we need to focus about splitting the original dataset properly. We implemented a function which will be utilised in both model notebooks, whose goal is to split the data properly into train,test or train,val,test with configurable sizes. Through this manual function we are reassured that our final sets are balanced in of all the possible Tag Combinations. 
 
 > [!TIP]
-> To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure
+> To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure that sets will be balanced and contain a based-on-ratio-equally number of examples, leading to sufficient model's exposure to all cases. 
 
 
 ## BERT Model
 
+A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment with batch size: {16,32} and a small number of epochs: 3 (time restrictions).
 
-batch size: {16,32}
-
-epochs: 3 (as proposed by Devlin)
 
 
 

@@ -124,12 +124,12 @@ model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len
 ```
 .
 ├── ...
-├── notebooks                    # Test files (alternatively `spec` or `tests`)
-│   ├── Tag_Combinations_M          # M: Top Tag Combinations
-    │   ├── EDA         
-│   └── Tag_Combinations_20               
-│   └── Tag_Combinations_20                
-│   └── Tag_Combinations_20              
+├── notebooks                    
+│   ├── Tag_Combinations_M         # M: Top Tag Combinations
+    │   ├── EDA_M                   
+    │   ├── Baseline_Model_M       
+    │   ├── LLM_Model_M_16         # Batch Size: 16
+    │   ├── LLM_Model_M_32         # Batch Size: 16          
 └── ...
 ```
 

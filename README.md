@@ -1,8 +1,6 @@
-# Multilabel Tag Prediction on StackOverflow
+# Multilabel Tag Prediction on StackOverflow Questions
 
-![Alt text](https://example.com/image.png)
-
-https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Stack_Overflow_logo.svg/1280px-Stack_Overflow_logo.svg.png
+![Alt text](images/stackoverflow.png)
 
 ## Introduction
 The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:
@@ -72,9 +70,9 @@ dsadsadsada
 <table>
 
   <tr>
-    <td colspan="3">EDA</td>
-    <td colspan="4">Baseline Model</td>
-    <td colspan="4">LLM Model</td>
+    <td colspan="3" align="center">EDA</td>
+    <td colspan="4" align="center">Linear SVC</td>
+    <td colspan="4" align="center">BERT</td>
   </tr>
   
   <tr>
@@ -84,11 +82,11 @@ dsadsadsada
     <td>Hamming Loss</td>
     <td>Micro-F1</td>
     <td>Macro-F1</td>
-    <td>Time</td>
+    <td>Time (mins)</td>
     <td>Hamming Loss</td>
     <td>Micro-F1</td>
     <td>Macro-F1</td>
-    <td>Epoch Time with GPU</td>
+    <td>Epoch GPU (mins)</td>
   </tr>
   <tr>
     <td>33.374</td>
@@ -97,11 +95,11 @@ dsadsadsada
     <td>0.03</td>
     <td>0.83</td>
     <td>0.81</td>
-    <td>3 mins</td>
+    <td>3</td>
     <td>0.02</td>
     <td>0.86</td>
     <td>0.84</td>
-    <td>11 mins</td>
+    <td>11</td>
   </tr>
   <tr>
     <td>42.369</td>
@@ -110,7 +108,7 @@ dsadsadsada
     <td>0.02</td>
     <td>0.8</td>
     <td>0.79</td>
-    <td>6 mins</td>
+    <td>6</td>
     <td colspan="4" align="center">N/A</td>
   </tr>
   <tr>
@@ -120,11 +118,11 @@ dsadsadsada
   <td>0.01</td>
   <td>0.79</td>
   <td>0.77</td>
-  <td>8 mins</td>
-  <td>0.02</td>
-  <td>0.68</td>
-  <td>0.28</td>
-  <td>16 mins</td>
+  <td>8</td>
+  <td>0.01</td>
+  <td>0.84</td>
+  <td>0.78</td>
+  <td>16</td>
   </tr>
 <tr>
   <td>62.118</td>
@@ -133,11 +131,11 @@ dsadsadsada
   <td>0.01</td>
   <td>0.78</td>
   <td>0.7</td>
-  <td>17 mins</td>
+  <td>17</td>
   <td>0.02</td>
   <td>0.68</td>
   <td>0.28</td>
-  <td>21 mins</td>
+  <td>21</td>
 </tr>
 
 <tr>
@@ -147,7 +145,7 @@ dsadsadsada
   <td>0.01</td>
   <td>0.76</td>
   <td>0.68</td>
-  <td>24 mins</td>
+  <td>24</td>
   <td colspan="4" align="center">N/A</td>
 </tr>
   <tr>

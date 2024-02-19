@@ -68,8 +68,8 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 ### Key Points:
 - **TF-IDF (Term Frequency-Inverse Document Frequency)** was used for text feature extraction with max_features=20000, considering also uni,bi and trigrams.
 - **MultiLabelBinarizer** was used to convert tags to binary vector representation.
-- Metrics opted for evaluation: **Hamming Loss**, **Micro-F1** and **Macro-F1**.
 - Multiple Sklearn Models were used, but the most competitive performance derives from **Linear SVC**.
+- **Hamming Loss**, **Micro-F1** and **Macro-F1** were the metrics opted for evaluation. 
 - **KFold Cross Validation** for the best model, ensuring that the model's performance is consistent across different data's subsets.
 - **Classification Report** for each Tag.
 
@@ -81,9 +81,14 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
 
 ### Key Points:
 - **BertForSequenceClassification** was choosed as architecture (model:'bert-base-uncased'), comprised from BERT and on top a trainable classification layer.
+- **MultiLabelBinarizer** was used to convert tags to binary vector representation.
 - **Pytorch Dataset & Dataloader** made the process of manipulating data to feed them into the model smooth.
 - **BCEWithLogitsLoss** utilised as loss function, well-suited for multilabel problems, as it calculates the loss for each label independently.
-- 
+- **Pytorch Training** and respective Learning Curve.
+- **Hamming Loss**, **Micro-F1** and **Macro-F1** were the metrics opted for evaluation. 
+- **Classification Report** for each Tag.
+
+
 
 
 

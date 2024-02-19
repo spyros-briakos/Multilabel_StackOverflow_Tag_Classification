@@ -44,9 +44,12 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 > To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure
 
 
-## LLM Model
+## BERT Model
 dsadsadsada
 
+
+batch size [16,32,128]
+epochs 3 as proposed
 
 
 

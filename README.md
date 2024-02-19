@@ -1,4 +1,8 @@
-# Multilabel_StackOverflow_Tag_Classification
+# Multilabel Tag Prediction on StackOverflow
+
+![Alt text](https://example.com/image.png)
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Stack_Overflow_logo.svg/1280px-Stack_Overflow_logo.svg.png
 
 ## Introduction
 The current case-study revolves around tag prediction of Stack Overflow questions. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:

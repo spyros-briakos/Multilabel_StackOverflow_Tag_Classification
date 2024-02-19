@@ -125,7 +125,7 @@ dsadsadsada
   <td align="center">0.01</td>
   <td align="center">0.84</td>
   <td align="center">0.78</td>
-  <td align="center">16</td>
+  <td align="center">16 (32)</td>
   </tr>
 <tr>
   <td align="center">62.118</td>
@@ -135,10 +135,10 @@ dsadsadsada
   <td align="center">0.78</td>
   <td align="center">0.7</td>
   <td align="center">17</td>
-  <td align="center">0.02</td>
-  <td align="center">0.68</td>
-  <td align="center">0.28</td>
-  <td align="center">21</td>
+  <td align="center">0.01</td>
+  <td align="center">0.81</td>
+  <td align="center">0.64</td>
+  <td align="center">21 (32)</td>
 </tr>
 
 <tr>

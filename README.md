@@ -45,11 +45,11 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 
 
 ## BERT Model
-dsadsadsada
 
 
-batch size [16,32,128]
-epochs 3 as proposed
+batch size: {16,32}
+
+epochs: 3 (as proposed by Devlin)
 
 
 
@@ -77,7 +77,7 @@ epochs 3 as proposed
 
   <tr>
     <td colspan="3" align="center">EDA</td>
-    <td colspan="4" align="center">Linear SVC</td>
+    <td colspan="3" align="center">Linear SVC</td>
     <td colspan="4" align="center">BERT</td>
   </tr>
   
@@ -88,11 +88,10 @@ epochs 3 as proposed
     <td align="center">Hamming Loss</td>
     <td align="center">Micro-F1</td>
     <td align="center">Macro-F1</td>
-    <td align="center">Time (mins)</td>
     <td align="center">Hamming Loss</td>
     <td align="center">Micro-F1</td>
     <td align="center">Macro-F1</td>
-    <td align="center">Epoch GPU (mins)</td>
+    <td align="center">Epoch GPU (Batch Size)</td>
   </tr>
   <tr>
     <td align="center">33.374</td>
@@ -101,11 +100,10 @@ epochs 3 as proposed
     <td align="center">0.03</td>
     <td align="center">0.83</td>
     <td align="center">0.81</td>
-    <td align="center">3</td>
     <td align="center">0.02</td>
     <td align="center">0.86</td>
-    <td align="center">0.84</td>
-    <td align="center">11</td>
+    <td align="center">0.85</td>
+    <td align="center">12 (32)</td>
   </tr>
   <tr>
     <td align="center">42.369</td>
@@ -114,7 +112,6 @@ epochs 3 as proposed
     <td align="center">0.02</td>
     <td align="center">0.8</td>
     <td align="center">0.79</td>
-    <td align="center">6</td>
     <td colspan="4" align="center">N/A</td>
   </tr>
   <tr>
@@ -124,7 +121,6 @@ epochs 3 as proposed
   <td align="center">0.01</td>
   <td align="center">0.79</td>
   <td align="center">0.77</td>
-  <td align="center">8</td>
   <td align="center">0.01</td>
   <td align="center">0.84</td>
   <td align="center">0.78</td>
@@ -137,7 +133,6 @@ epochs 3 as proposed
   <td align="center">0.01</td>
   <td align="center">0.78</td>
   <td align="center">0.7</td>
-  <td align="center">17</td>
   <td align="center">0.01</td>
   <td align="center">0.82</td>
   <td align="center">0.7</td>
@@ -151,7 +146,6 @@ epochs 3 as proposed
   <td align="center">0.01</td>
   <td align="center">0.76</td>
   <td align="center">0.68</td>
-  <td align="center">24</td>
   <td colspan="4" align="center">N/A</td>
 </tr>
   <tr>

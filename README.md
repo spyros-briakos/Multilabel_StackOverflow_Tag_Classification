@@ -16,7 +16,6 @@ The current case-study revolves around tag prediction of Stack Overflow question
 
 I am utilising a diverse range of NLP tools and models, spanning from basic ML traditional models to advanced neural networks, like BERT that has been fine-tuned for the specific task. Finally we merge all the results together so as to compare from metrics and efficiency perspective.
 
-
 All three following notebooks can be configured with desired number M, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
 
 ## EDA 
@@ -41,19 +40,7 @@ The biggest time allocation of this project was for sure EDA, and one of its sub
 - Removal of only-digit words
 - Joining 
 > ***    
-
-
-
 After a single run of `EDA.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/EDA.ipynb), having opted M value, it is produced a preprocessed.csv, which contains data with top M tag combinations, ready to manipulate afterwards on model notebooks. In that way, code is more generic and we have the ability to store different subsets of original dataset, as we prefer.
-
-
-
-
-
-
-
-
-
 
 
 ## Baseline Model
@@ -65,7 +52,7 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 > [!TIP]
 > To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure that sets will be balanced and contain a based-on-ratio-equally number of examples, leading to sufficient model's exposure to all cases. 
 
-### Key Points:
+### Structure Points:
 - **TF-IDF (Term Frequency-Inverse Document Frequency)** was used for text feature extraction with max_features=20000, considering also uni,bi and trigrams.
 - **MultiLabelBinarizer** was used to convert tags to binary vector representation.
 - Multiple Sklearn Models were used, but the most competitive performance derives from **Linear SVC**.
@@ -73,13 +60,13 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 - **KFold Cross Validation** for the best model, ensuring that the model's performance is consistent across different data's subsets.
 - **Classification Report** for each Tag.
 
-## BERT Model
+## LLM Model
 
 `LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/LLM_Model.ipynb), with similar thought process, defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
 A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
 
-### Key Points:
+### Structure Points:
 - **BertForSequenceClassification** was choosed as architecture (model:'bert-base-uncased'), comprised from BERT and on top a trainable classification layer.
 - **MultiLabelBinarizer** was used to convert tags to binary vector representation.
 - **Pytorch Dataset & Dataloader** made the process of manipulating data to feed them into the model smooth.

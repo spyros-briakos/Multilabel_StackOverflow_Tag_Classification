@@ -120,17 +120,17 @@ model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len
 
 
 
-### Repository Folder Structure
+## Repository Folder Structure
 
 ```
 .
 ├── ...
 ├── notebooks                    # Test files (alternatively `spec` or `tests`)
-│   ├── Tag_Combinations_20          # Load and stress tests
-    │   ├── EDA         # End-to-end, integration tests (alternatively `e2e`)
-│   └── Tag_Combinations_20                # Unit tests
-│   └── Tag_Combinations_20                # Unit tests
-│   └── Tag_Combinations_20                # Unit tests
+│   ├── Tag_Combinations_M          # M: Top Tag Combinations
+    │   ├── EDA         
+│   └── Tag_Combinations_20               
+│   └── Tag_Combinations_20                
+│   └── Tag_Combinations_20              
 └── ...
 ```
 
@@ -234,3 +234,4 @@ Baseline model is **Linear Support Vector Machines** and except of its pretty de
 
 For a more sophisticated model we opted from HuggingFace library BERTforSequenceClassification architecture with **BERT 'bert-base-uncased'** model. Our choice is justified by the fact that we have a multilabel classification problem and also BERT is very popular for text classification. 
 
+just a few epochs more could lead to a bit better results

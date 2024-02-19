@@ -120,6 +120,20 @@ model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len
 
 
 
+### Repository Folder Structure
+
+```
+.
+├── ...
+├── notebooks                    # Test files (alternatively `spec` or `tests`)
+│   ├── Tag_Combinations_20          # Load and stress tests
+    │   ├── EDA         # End-to-end, integration tests (alternatively `e2e`)
+│   └── Tag_Combinations_20                # Unit tests
+│   └── Tag_Combinations_20                # Unit tests
+│   └── Tag_Combinations_20                # Unit tests
+└── ...
+```
+
 
 
 ## Experiment Results

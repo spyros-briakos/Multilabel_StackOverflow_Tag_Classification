@@ -66,6 +66,33 @@ Our problem is multilabel, thus we already know that Tag may be more than one an
 
 A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment for each data's subset with batch size: {16,32} and a small number of epochs: 3 (GPU constraint).
 
+
+> [!NOTE]
+> kdsaklda
+```ruby
+class BERTModel(torch.nn.Module):
+    def __init__(self):
+        super(BERTModel, self).__init__(num_labels)
+        self.l1 = transformers.BertModel.from_pretrained('bert-base-uncased', return_dict=False)
+        self.l2 = torch.nn.Dropout(0.1)
+        self.l3 = torch.nn.Linear(768, num_labels)
+
+    def forward(self, ids, mask, token_type_ids):
+        _, output_1= self.l1(ids, attention_mask = mask, token_type_ids = token_type_ids)
+        output_2 = self.l2(output_1)
+        output = self.l3(output_2)
+        return output
+
+model = BERTModel(len(unique_tags))
+model.to(device)
+```
+
+```ruby
+model_name = 'bert-base-uncased'
+tokenizer = BertTokenizer.from_pretrained(model_name)
+model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len(unique_tags)).to(device)
+```
+
 ### Structure Points:
 - **BertForSequenceClassification** was choosed as architecture (model:'bert-base-uncased'), comprised from BERT and on top a trainable classification layer.
 - **MultiLabelBinarizer** was used to convert tags to binary vector representation.
@@ -174,9 +201,9 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
   <td align="center">0.76</td>
   <td align="center">0.68</td>  
   <td align="center">0.01</td>
-  <td align="center">0.78</td>
-  <td align="center">0.49</td>
-  <td align="center">25 (32)</td>
+  <td align="center">0.80</td>
+  <td align="center">0.66</td>
+  <td align="center">26 (16)</td>
 </tr>
   <tr>
     <td align="center">76.766</td>

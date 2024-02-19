@@ -25,7 +25,7 @@ def calculate_tag_combinations(temp_df):
     Create a dataframe 'tag_combination', which stores the unique combination of Tags and the number of appearance
     """
     if temp_df.empty:
-        print('Error: Provided DataFrame is empty!')
+        # print('Error: Provided DataFrame is empty!')
         return
 
     temp_df['Tag'] = temp_df['Tag'].apply(sorted)
@@ -38,9 +38,9 @@ def calculate_tag_combinations(temp_df):
     all_tags = [tag for tag_tuple in tag_combinations['Tag_Tuple'] for tag in tag_tuple]
     num_unique_tags = len(set(all_tags))
 
-    print(f"Number of Questions of Tag Combinations: {sum_count}")
-    print(f"Number of unique tags of Tag Combinations: {num_unique_tags}")
-    print(f"Minimum Frequency of Tag Combinations: {tag_combinations['Count'].iloc[-1]}\n")
+    # print(f"Number of Questions of Tag Combinations: {sum_count}")
+    # print(f"Number of unique tags of Tag Combinations: {num_unique_tags}")
+    # print(f"Minimum Frequency of Tag Combinations: {tag_combinations['Count'].iloc[-1]}\n")
     display(tag_combinations)
 
     return tag_combinations

@@ -70,7 +70,7 @@ final_df = merged_df[['Text', 'Tag']].copy()
 def calculate_unique_tags(temp_df):
     all_tags = [tag for tags_list in temp_df['Tag'] for tag in tags_list]
     total_unique_tags = len(set(all_tags))
-    print("Total number of unique tags:", total_unique_tags)
+    # print("Total number of unique tags:", total_unique_tags)
 calculate_unique_tags(final_df)
 
 # Preprocessing pipeline

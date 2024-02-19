@@ -14,6 +14,9 @@ The current case-study revolves around tag prediction of Stack Overflow question
     * A unique identifier for each question.
     * One or more associated tags.
 
+I am utilising a diverse range of NLP tools and models, spanning from basic ML traditional models to advanced neural networks, like BERT that has been fine-tuned for the specific task. Finally we merge all the results together so as to compare from metrics and efficiency perspective.
+
+
 All three following notebooks can be configured with desired number M, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
 
 ## EDA 

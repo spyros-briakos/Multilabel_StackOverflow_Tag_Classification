@@ -5,10 +5,10 @@
 ## Introduction
 The current case-study revolves around tag prediction of Stack Overflow questions on programming topics. We utilise [StackSample Kaggle dataset](https://www.kaggle.com/datasets/stackoverflow/stacksample), which represents approximately 10% of Stack Overflow Q&A corpus. More specifically we only utilise the following files:
 1. `Questions.csv`
-    * A unique identifier of the user that created each question
-    * A unique identifier of the question itself
-    * Creation and closing datetimes corresponding to each question
-    * The cumulative reaction score of each question (zero, positive or negative)
+    * A unique identifier of the user that created each question.
+    * A unique identifier of the question itself.
+    * Creation and closing datetimes corresponding to each question.
+    * The cumulative reaction score of each question (zero, positive or negative).
     * The title and main body of each question.
 3. `Tags.csv`
     * A unique identifier for each question.
@@ -16,7 +16,7 @@ The current case-study revolves around tag prediction of Stack Overflow question
 
 I am utilising a diverse range of NLP tools and models, spanning from basic ML traditional models to advanced neural networks, like BERT that has been fine-tuned for the specific task. Finally we merge all the results together so as to compare from metrics and efficiency perspective.
 
-All three following notebooks can be configured with desired number M, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
+> All three following notebooks can be configured with desired number M, which represents number of Top Tag Combinations, and retrieve the respective dataset's subset for experimental purposes. 
 
 ## EDA 
 Due to time and resources limitations, from the beginning of this project, we knew that we must retain a proper subset of the original dataset. After merging two csv files, we aimed to identify insights for Tags via plots and statistics, thus leading us to the result to experiment in keeping only top N tags. After some trial and errors, we decided it (for future ease) to experiment in keeping with the top M tag combinations. Note that we decided to opt only the Questions with positive cummulative score, as we believe this kind of questions, most of the times provide valuable insights and solutions, therefore more quality data.

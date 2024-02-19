@@ -132,7 +132,7 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
     <td align="center">35</td>
     <td align="center">28</td>
     <td align="center">0.02</td>
-    <td align="center">0.8</td>
+    <td align="center">0.80</td>
     <td align="center">0.79</td>
     <td align="center">0.02</td>
     <td align="center">0.84</td>
@@ -157,10 +157,10 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
   <td align="center">74</td>
   <td align="center">0.01</td>
   <td align="center">0.78</td>
-  <td align="center">0.7</td>
+  <td align="center">0.70</td>
   <td align="center">0.01</td>
   <td align="center">0.82</td>
-  <td align="center">0.7</td>
+  <td align="center">0.70</td>
   <td align="center">21 (16)</td>
 </tr>
 

@@ -121,8 +121,8 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
   <td align="center">0.77</td>
   <td align="center">0.01</td>
   <td align="center">0.84</td>
-  <td align="center">0.78</td>
-  <td align="center">16 (32)</td>
+  <td align="center">0.81</td>
+  <td align="center">18 (16)</td>
   </tr>
 <tr>
   <td align="center">62.118</td>

@@ -26,11 +26,11 @@ The biggest time allocation of this project was for sure EDA, and one of its sub
 
 > ***    
 
-> Preprocessing Pipeline:
-> - Lowercase
-> - Cleaning
->    - Removal of noise from tag words
->    - Removal of HTML tags
+Preprocessing Pipeline:
+- Lowercase
+- Cleaning
+   - Removal of noise from tag words
+  -- Removal of HTML tags
 >    - Removal of IPV4 adresses 
 >    - Removal of URLs
 >    - Removal of redundant symbols (spaces, newline etc.)

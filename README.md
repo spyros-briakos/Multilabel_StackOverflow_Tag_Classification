@@ -127,7 +127,9 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
     │   ├── EDA_M                   
     │   ├── Baseline_Model_M       
     │   ├── LLM_Model_M_16         # Batch Size: 16
-    │   ├── LLM_Model_M_32         # Batch Size: 16          
+    │   ├── LLM_Model_M_32         # Batch Size: 16
+├── ...     
+│   ├── images                     #  Images needed 
 └── ...
 ```
 

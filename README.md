@@ -216,7 +216,7 @@ model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len
 
 Unfortunately on the experiment procedure, we face RAM issues with 200 Top Tag Combinations, therefore we must limit in smaller subsets of original dataset.
 
-Baseline model is **Linear Support Vector Machines** and except of its pretty descent performance, we have to mention that was very time efficient, managing to train in just a few seconds.
+Baseline model is **Linear Support Vector Machines** and except of its pretty descent performance in all of our experiments, we have to mention that was very time efficient, managing to train in just ***less than a minute***.
 
 For a more sophisticated model we opted from HuggingFace library BERTforSequenceClassification architecture with **BERT 'bert-base-uncased'** model. Our choice is justified by the fact that we have a multilabel classification problem and also BERT is very popular for text classification. 
 

@@ -58,17 +58,22 @@ After a single run of `EDA.ipynb` notebook [![Open In Colab](https://colab.resea
 
 ## Baseline Model
 
-With similar thought process, `Baseline_Model.ipnyb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Baseline_Model.ipynb) defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
+`Baseline_Model.ipnyb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Baseline_Model.ipynb) defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
-Our problem is multilabel, thus we already know that Tag may be more than one and this is a tricky point that we need to focus about splitting the original dataset properly. We implemented a function which will be utilised in both model notebooks, whose goal is to split the data properly into train,test or train,val,test with configurable sizes. Through this manual function we are reassured that our final sets are balanced in of all the possible Tag Combinations. 
+Our problem is multilabel, thus we already know that Tag may be more than one and this is a tricky point that we need to focus about splitting the original dataset properly. We implemented a function which will be utilised in both model notebooks, whose goal is to split the data properly into (train,test) or (train,val,test) with configurable sizes. Through this manual function we are reassured that our final sets are balanced in of all the possible Tag Combinations. 
 
 > [!TIP]
 > To split data properly and result to well distributed train,val,test sets try convert multilabel to single label by calculating all label combinations. With that logic we are pretty sure that sets will be balanced and contain a based-on-ratio-equally number of examples, leading to sufficient model's exposure to all cases. 
 
+TF-IDF (Term Frequency-Inverse Document Frequency) was used for feature extraction with max_features=20000, considering also uni,bi and trigrams.
+
+Metrics opted for evaluation: Hamming Loss, Micro-F1 and Macro-F1 
+
+Multiple Sklearn Models were used, but the most competitive performance derives from **Linear SVC** and **SGD**.
 
 ## BERT Model
 
-`LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/LLM_Model.ipynb)
+`LLM_Model.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/LLM_Model.ipynb), with similar thought process, defines the M number in order to retrieve, whichever preprocessed version of dataset the user prefers. 
 
 A series of experiments took place in Google Colab, where all notebooks run, utilising for BERT GPU, due to its heavy architecture. As Devlin proposed for finetuning tasks, we experiment with batch size: {16,32} and a small number of epochs: 3 (time restrictions).
 

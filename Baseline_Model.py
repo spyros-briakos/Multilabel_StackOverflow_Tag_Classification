@@ -1,7 +1,6 @@
 # Import Useful Libraries
 import pandas as pd
 import numpy as np
-import time
 import ast
 from sklearn.metrics import hamming_loss, f1_score ,classification_report
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -12,10 +11,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import KFold
-from google.colab import drive
-
-start_time = time.time()
-drive.mount('/content/drive')
 
 # Rerieve Dataset
 max = 50
@@ -23,12 +18,6 @@ path = '/content/drive/MyDrive/Satori Assignment/data/preprocessed_data_'+ str(m
 df = pd.read_csv(path)
 df['Target'] = df['Target'].apply(ast.literal_eval)
 df['Tag'] = df['Tag'].apply(ast.literal_eval)
-print(df.shape)
-display(df.head())
-
-unique_tags = set([tag for sublist in df['Tag'] for tag in sublist])
-print(f"Number of Unique Tags: {len(unique_tags)}")
-print(unique_tags)
 
 # Split data
 def calculate_tag_combinations(temp_df):
@@ -106,12 +95,8 @@ test_tag_combinations = calculate_tag_combinations(test_df)
 tfidf_vectorizer = TfidfVectorizer(max_features=20000, ngram_range=(1,3))
 X_train = tfidf_vectorizer.fit_transform(train_df['Text'])
 Y_train = np.array(train_df['Target'].tolist())
-print('X_train shape:', X_train.shape)
-print('Y_train shape:', Y_train.shape)
 X_test = tfidf_vectorizer.transform(test_df['Text'])
 Y_test = np.array(test_df['Target'].tolist())
-print('X_test shape:', X_test.shape)
-print('Y_test shape:', Y_test.shape)
 
 # In order to experiment with different Sklearn models, create a generic function to monitor each algorithm's performance.
 def train_and_evaluate_model(model, model_name):
@@ -124,11 +109,6 @@ def train_and_evaluate_model(model, model_name):
     hamming_loss_val = round(hamming_loss(Y_test, Y_pred), 2)
     micro_f1 = round(f1_score(Y_test, Y_pred, average='micro'), 2)
     macro_f1 = round(f1_score(Y_test, Y_pred, average='macro'), 2)
-
-    print("-" * 90)
-    print(f"> {model_name}")
-    print(f"Hamming Loss: {hamming_loss_val}\tMicro-F1: {micro_f1}\t\tMacro-F1: {macro_f1}\t\tTime: {int((time.time()-start_training))} secs")
-
     return Y_pred
 
 init = time.time()
@@ -153,9 +133,6 @@ train_and_evaluate_model(nb_model, 'Multinomial Naive Bayes')
 rf_model = RandomForestClassifier(n_estimators=100)
 train_and_evaluate_model(rf_model, 'Random Forest')
 
-print("-" * 90)
-print("\nCell Runtime:", int((time.time()-init)/60), "minutes")
-
 # Best Classifier Cross Validation
 hamming_losses, micro_f1_scores, macro_f1_scores = [], [], []
 kf = KFold(n_splits=5)
@@ -177,24 +154,3 @@ for fold_idx, (train_index, test_index) in enumerate(kf.split(X_train), 1):
     hamming_losses.append(hamming_loss_fold)
     micro_f1_scores.append(micro_f1_fold)
     macro_f1_scores.append(macro_f1_fold)
-
-    print("-" * 30)
-    print(f"KFold {fold_idx}:")
-    print(f"\tHamming Loss: {hamming_loss_fold}")
-    print(f"\tMicro-F1: {micro_f1_fold}")
-    print(f"\tMacro-F1: {macro_f1_fold}")
-
-print("-" * 30 + '\n')
-print("-" * 90)
-print(f"CV Mean Hamming Loss: {round(np.mean(hamming_losses), 2)}\tCV Mean Micro-F1: {round(np.mean(micro_f1_scores), 2)}\t\tCV Mean Macro-F1: {round(np.mean(macro_f1_scores), 2)}")
-print("-" * 90)
-
-# Classification Report for each Tag
-mlb = MultiLabelBinarizer()
-tag_matrix = mlb.fit_transform(df['Tag'].tolist())
-print('*'*60)
-for i in range(Y_train.shape[1]):
-    print(mlb.classes_[i])
-    print(classification_report(Y_test[:,i], Y_pred[:,i]),'\n'+'*'*60)
-
-print("Total time to run the notebook:", int((time.time()-start_time)/60), "minutes")

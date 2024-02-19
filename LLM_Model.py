@@ -1,7 +1,6 @@
 # Import Useful Libraries
 import numpy as np
 import pandas as pd
-import time
 import ast
 import torch
 import os
@@ -14,10 +13,6 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import hamming_loss, f1_score ,classification_report
 from transformers import BertForSequenceClassification, BertTokenizer
 from torch.utils.data import DataLoader, Dataset
-from tqdm import tqdm
-from google.colab import drive
-start_time = time.time()
-drive.mount('/content/drive')
 
 # Retrieve Dataset
 max = 50
@@ -25,12 +20,8 @@ path = '/content/drive/MyDrive/Satori Assignment/data/preprocessed_data_'+ str(m
 df = pd.read_csv(path)
 df['Target'] = df['Target'].apply(ast.literal_eval)
 df['Tag'] = df['Tag'].apply(ast.literal_eval)
-print(df.shape)
-display(df.head())
 
 unique_tags = set([tag for sublist in df['Tag'] for tag in sublist])
-print(f"Number of Unique Tags: {len(unique_tags)}")
-print(unique_tags)
 
 # Split data
 def calculate_tag_combinations(temp_df):
@@ -108,22 +99,13 @@ test_tag_combinations = calculate_tag_combinations(test_df)
 
 X_train = train_df['Text'].tolist()
 Y_train = train_df['Target'].tolist()
-print('X_train Size:', len(X_train))
-print('Y_train Size:', len(Y_train),'\n')
-
 X_val = val_df['Text'].tolist()
 Y_val = val_df['Target'].tolist()
-print('X_train Size:', len(X_val))
-print('Y_train Size:', len(Y_val),'\n')
-
 X_test = test_df['Text'].tolist()
 Y_test = test_df['Target'].tolist()
-print('X_train Size:', len(X_test))
-print('Y_train Size:', len(Y_test))
 
 # Check if GPU is available..
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(device)
 
 # Seeding everything for reproducibility, this is an important practice to help developers reproduce and match results.
 def seed_everything(seed=42):
@@ -191,57 +173,6 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-def display_info(temp_loader,name):
-    first_batch_train = next(iter(temp_loader))
-    input_ids_shape_train = first_batch_train['input_ids'].shape
-    attention_mask_shape_train = first_batch_train['attention_mask'].shape
-    labels_shape_train = first_batch_train['labels'].shape
-    print(name, "Loader First Batch Shapes:")
-    print("Input IDs Shape:", input_ids_shape_train)
-    print("Attention Mask Shape:", attention_mask_shape_train)
-    print("Labels Shape:", labels_shape_train)
-    print("Number of Batches:", len(temp_loader),'\n')
-
-display_info(train_loader,'Train')
-display_info(valid_loader,'Valid')
-display_info(test_loader,'Test')
-
-# Print some useful information about our tokenizer.
-vocab_size = tokenizer.vocab_size
-print("Vocabulary size:", vocab_size)
-
-max_tokens = tokenizer.max_model_input_sizes[model_name]
-print("Maximum number of tokens:", max_tokens)
-
-# Iterate over batches in train_loader
-for batch_idx, batch in enumerate(train_loader):
-    # Get inputs and labels from batch
-    input_ids = batch['input_ids'].to(device)
-    attention_mask = batch['attention_mask'].to(device)
-    labels = batch['labels'].to(device)
-
-    # Print 3 samples
-    print(f"Batch {batch_idx + 1}:")
-    for i in range(min(3, len(input_ids))):
-        print(f"Sample {i + 1}:")
-        print("Input IDs:", input_ids[i])
-        print("Attention Mask:", attention_mask[i])
-        print("Labels:", labels[i])
-        print()
-        print()
-    break
-
-# Each Sample contains exactly 3 Torch Tensors:
-# **Input IDs** with size max_length=128, shows the indices that represent each token in the tokenizer's vocabulary.
-# **Attention Mask** with size max_length=128, instructs the model which elements in the input sequence should be attended to and which should be ignored.
-# **Labels** with size of Unique Tags, each label is represented as a binary value indicating the presence (1) or absence (0) of that label.
-
-# Understand model's architecture and final trainable classification layer.
-print(model)
-
-# Finetuning
-training_init = time.time()
-
 ########################
 #### Training Stage ####
 ########################
@@ -292,20 +223,9 @@ for epoch in range(num_epochs):
             epoch_val_loss += loss.item()
 
     val_losses.append(epoch_val_loss / len(valid_loader))
-    print(f"Epoch {epoch+1}/{num_epochs}, Epoch Duration: {int((time.time() - epoch_init) / 60)} minutes, Train Loss: {round(train_losses[-1],2)}, Val Loss: {round(val_losses[-1],2)}\n")
+    # print(f"Epoch {epoch+1}/{num_epochs}, Epoch Duration: {int((time.time() - epoch_init) / 60)} minutes, Train Loss: {round(train_losses[-1],2)}, Val Loss: {round(val_losses[-1],2)}\n")
 
-print("\nTraining Duration:", int((time.time()-training_init)/60), "minutes")
-
-# Learning Curve
-epochs = range(1, len(train_losses) + 1)
-
-plt.plot(epochs, train_losses, 'b', label='Training loss')
-plt.plot(epochs, val_losses, 'r', label='Validation loss')
-plt.title('Training and Validation Loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
+# print("\nTraining Duration:", int((time.time()-training_init)/60), "minutes")
 
 ##########################
 #### Evaluation Stage ####
@@ -336,15 +256,3 @@ all_labels = np.array(all_labels)
 hamming_loss_val = round(hamming_loss(all_labels, all_preds),2)
 micro_f1 = round(f1_score(all_labels, all_preds, average='micro'),2)
 macro_f1 = round(f1_score(all_labels, all_preds, average='macro'),2)
-
-print(f"Hamming Loss: {hamming_loss_val}\tMicro-F1: {micro_f1}\t\tMacro-F1: {macro_f1}")
-
-# Classification Report for each Tag
-mlb = MultiLabelBinarizer()
-tag_matrix = mlb.fit_transform(test_df['Tag'].tolist())
-print('*'*60)
-for i in range(len(Y_train[0])):
-    print(mlb.classes_[i])
-    print(classification_report(all_labels[:,i], all_preds[:,i]),'\n'+'*'*60)
-
-print("Total time to run the notebook:", int((time.time()-start_time)/60), "minutes")

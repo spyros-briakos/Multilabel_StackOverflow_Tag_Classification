@@ -84,12 +84,10 @@ class BERTModel(torch.nn.Module):
         return output
 
 model = BERTModel(len(unique_tags))
-model.to(device)
 ```
 
 ```ruby
-model_name = 'bert-base-uncased'
-model = BertForSequenceClassification.from_pretrained(model_name, num_labels=len(unique_tags)).to(device)
+model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(unique_tags))
 ```
 
 ### Structure Points:

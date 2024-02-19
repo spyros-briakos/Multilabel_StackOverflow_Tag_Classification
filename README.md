@@ -93,7 +93,7 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
 
 
 
-## Experiment Table
+## Experiment Results
 
 <table>
 

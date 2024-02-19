@@ -136,8 +136,8 @@ dsadsadsada
   <td align="center">0.7</td>
   <td align="center">17</td>
   <td align="center">0.01</td>
-  <td align="center">0.81</td>
-  <td align="center">0.64</td>
+  <td align="center">0.82</td>
+  <td align="center">0.7</td>
   <td align="center">21 (32)</td>
 </tr>
 

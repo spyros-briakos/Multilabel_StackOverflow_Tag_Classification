@@ -33,9 +33,11 @@ After a single run of EDA notebook [![Open In Colab](https://colab.research.goog
 
 
 ## Baseline Model
+
+With similar thought process Baseline_Model notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyros-briakos/Multilabel_StackOverflow_Tag_Prediction/blob/main/notebooks/Baseline_Model.ipynb) is 
+
 > [!TIP]
 > Helpful advice for doing things better or more easily.
-
 
 
 ## LLM Model

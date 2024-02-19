@@ -68,7 +68,7 @@ A series of experiments took place in Google Colab, where all notebooks run, uti
 
 
 > [!NOTE]
-> kdsaklda
+> The following two code blocks produce the exact same result, we utilise the last, for ease purposes.
 ```ruby
 class BERTModel(torch.nn.Module):
     def __init__(self):

@@ -124,15 +124,19 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 .
 ├── ...
 ├── notebooks                    
-│   ├── Tag_Combinations_M         # M: Top Tag Combinations
-    │   ├── EDA_M                   
-    │   ├── Baseline_Model_M       
-    │   ├── LLM_Model_M_16         # Batch Size: 16
-    │   ├── LLM_Model_M_32         # Batch Size: 16
-├── ...     
-├── images                         #  Images needed
+│   ├── Tag_Combinations_M               # M: Top Tag Combinations (Different Dataset's Subsets)
+    │   ├── EDA_M.ipynb                   
+    │   ├── Baseline_Model_M.ipynb       
+    │   ├── LLM_Model_M_16.ipynb         # Batch Size: 16
+    │   ├── LLM_Model_M_32.ipynb         # Batch Size: 32
+├── src                                  #  Python code of nbs 
+|   ├── EDA.py                         
+|   ├── Baseline_Model.py                
+|   ├── LLM_Model.py
+├── images                               #  Images needed
 │   ├── stackoverflow.png         
-└── ...
+├── README.md                   
+├── ...
 ```
 
 
